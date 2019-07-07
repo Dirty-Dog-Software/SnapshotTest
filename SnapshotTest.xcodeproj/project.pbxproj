@@ -303,15 +303,7 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3F5D0A72203CB326000F907F /* FilenameFormatter.swift */,
-				3F5D0A6E203C9F7D000F907F /* Option.swift */,
-				3F5D0A70203CA807000F907F /* Options.swift */,
-				3F789E332090F86100367283 /* Snapshotable.swift */,
-				3FCA69A72059957D00CFE455 /* SnapshotCoordinator.swift */,
-				3F58EB6E20599CC90044E6E9 /* SnapshotError.swift */,
-				3F69E4C51FB38ACC0081155A /* SnapshotFileManager.swift */,
-				3F69E4C41FB38ACC0081155A /* SnapshotTestCase.swift */,
-				3F9A2E48209707E200979F4F /* UIImage+Compare.swift */,
+				C3D341F522D1BFCC00497C3F /* SnapshotTest */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -323,6 +315,22 @@
 				C3D341E922D1B6DB00497C3F /* Info.plist */,
 			);
 			path = SnapshotTestPackageDescription;
+			sourceTree = "<group>";
+		};
+		C3D341F522D1BFCC00497C3F /* SnapshotTest */ = {
+			isa = PBXGroup;
+			children = (
+				3F5D0A72203CB326000F907F /* FilenameFormatter.swift */,
+				3F5D0A6E203C9F7D000F907F /* Option.swift */,
+				3F5D0A70203CA807000F907F /* Options.swift */,
+				3F789E332090F86100367283 /* Snapshotable.swift */,
+				3FCA69A72059957D00CFE455 /* SnapshotCoordinator.swift */,
+				3F58EB6E20599CC90044E6E9 /* SnapshotError.swift */,
+				3F69E4C51FB38ACC0081155A /* SnapshotFileManager.swift */,
+				3F69E4C41FB38ACC0081155A /* SnapshotTestCase.swift */,
+				3F9A2E48209707E200979F4F /* UIImage+Compare.swift */,
+			);
+			path = SnapshotTest;
 			sourceTree = "<group>";
 		};
 		DD7502721C68FC1B006590AF /* Frameworks */ = {
