@@ -54,7 +54,12 @@ class SnapshotCoordinatorTests: XCTestCase {
 
         // Given
         let view = redSquareView()
-        fileManagerMock.referenceImageReturnValue = UIImage(testFilename: "redSquare", ofType: "png")
+
+        // fileManagerMock.referenceImageReturnValue = UIImage(testFilename: "redSquare", ofType: "png")
+        // $ openssl base64 -in redSquare.png
+        let str =  "iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAyAAAAKAAAADIAAAAyAAAA9cAyiXQAAADBSURBVHgB7NWhEQAxEMPA67/p/HwDxgILgsyike7e3fM6f3BgdGD8LACJFQIQQFqJqCWbIQxhyLKSIQxhCENiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AAJEzyYpZAAggsrQsWJujHrMHEEDkTLJiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AYkA+AAAA///FySv9AAAAvklEQVTt1aERADEQw8Drv+n8fAPGAguCzKKR7t7d8zp/cGB0YPwsAIkVAhBAWomoJZshDGHIspIhDGEIQ2IWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkAAkTPJilkACCCytCxYm6MeswcQQORMsmIWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkBiQD5Kb9Zk9Tk5jQAAAABJRU5ErkJggg=="
+        let data = NSData(base64Encoded: str)
+        fileManagerMock.referenceImageReturnValue = UIImage(data: data! as Data)!
 
         // When
         XCTAssertNoThrow(try sut.compareSnapshot(of: view, options: [], functionName: "redSquare", line: 0))

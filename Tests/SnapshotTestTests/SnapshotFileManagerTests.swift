@@ -36,8 +36,16 @@ class SnapshotFileManagerTests: XCTestCase {
     var dataHandlerMock: DataHandlerMock!
     var processInfo: ProcessEnvironmentMock!
 
-    let testImage = UIImage(testFilename: "redSquare", ofType: "png")!
-    
+    let testImage = createTestImageInCode()
+    // let testImage = UIImage(testFilename: "redSquare", ofType:  "png")!
+
+    class func createTestImageInCode() -> UIImage {
+        // $ openssl base64 -in redSquare.png
+        let str =  "iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAyAAAAKAAAADIAAAAyAAAA9cAyiXQAAADBSURBVHgB7NWhEQAxEMPA67/p/HwDxgILgsyike7e3fM6f3BgdGD8LACJFQIQQFqJqCWbIQxhyLKSIQxhCENiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AAJEzyYpZAAggsrQsWJujHrMHEEDkTLJiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AYkA+AAAA///FySv9AAAAvklEQVTt1aERADEQw8Drv+n8fAPGAguCzKKR7t7d8zp/cGB0YPwsAIkVAhBAWomoJZshDGHIspIhDGEIQ2IWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkAAkTPJilkACCCytCxYm6MeswcQQORMsmIWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkBiQD5Kb9Zk9Tk5jQAAAABJRU5ErkJggg=="
+        let data = NSData(base64Encoded: str)
+        return UIImage(data: data! as Data)!
+    }
+
     override func setUp() {
         super.setUp()
 
@@ -152,8 +160,13 @@ class SnapshotFileManagerTests: XCTestCase {
         // Given
         processInfo.environment["REFERENCE_IMAGE_DIR"] = "/ReferenceImageDirectory"
         fileManagerMock.fileExistsReturnValue = true
-        let testImage = UIImage(testFilename: "redSquare", ofType: "png")!
-        
+
+        // let testImage = UIImage(testFilename: "redSquare", ofType: "png")!
+        // $ openssl base64 -in redSquare.png
+        let str =  "iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAyAAAAKAAAADIAAAAyAAAA9cAyiXQAAADBSURBVHgB7NWhEQAxEMPA67/p/HwDxgILgsyike7e3fM6f3BgdGD8LACJFQIQQFqJqCWbIQxhyLKSIQxhCENiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AAJEzyYpZAAggsrQsWJujHrMHEEDkTLJiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AYkA+AAAA///FySv9AAAAvklEQVTt1aERADEQw8Drv+n8fAPGAguCzKKR7t7d8zp/cGB0YPwsAIkVAhBAWomoJZshDGHIspIhDGEIQ2IWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkAAkTPJilkACCCytCxYm6MeswcQQORMsmIWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkBiQD5Kb9Zk9Tk5jQAAAABJRU5ErkJggg=="
+        let data = NSData(base64Encoded: str)
+        let testImage = UIImage(data: data! as Data)!
+
         // When
         try sut.save(referenceImage: testImage, filename: "testFunctionName", className: "CustomViewTests")
         
