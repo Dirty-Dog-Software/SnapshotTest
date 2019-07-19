@@ -30,6 +30,6 @@ let package = Package(
         .testTarget(
             name: "SnapshotTestTests",
             dependencies: ["SnapshotTest"]),
-    ]
+    ],
     swiftLanguageVersions: [.v5]
 )

@@ -26,3 +26,4 @@ Pods
 vendor
 .bundle
 
+.swiftpm/xcode/package.xcworkspace
