@@ -66,9 +66,24 @@ private extension CGImage {
             return false
         }
 
+        var result: Bool = false
+
         imageContext.draw(self, in: CGRect(origin: .zero, size: size))
         referenceContext.draw(image, in: CGRect(origin: .zero, size: image.size))
 
-        return memcmp(UnsafePointer(imageBuf), UnsafePointer(referenceBuf), imageSizeBytes) == 0
+        // Fixed Warning: Initialization of 'UnsafePointer<CUnsignedChar>' (aka 'UnsafePointer<UInt8>') results in a dangling pointer
+        //
+        //  See: https://stackoverflow.com/questions/60861711/initialization-of-unsafemutablerawpointer-results-in-a-dangling-pointer
+
+        imageBuf.withUnsafeBufferPointer { imageBufPtr in
+            referenceBuf.withUnsafeBufferPointer { referenceBufPrt in
+                result = memcmp(imageBufPtr.baseAddress!, referenceBufPrt.baseAddress!, imageSizeBytes) == 0
+            }
+        }
+
+        // Old code
+        // let result = memcmp(UnsafePointer(imageBuf), UnsafePointer(referenceBuf), imageSizeBytes) == 0
+        
+        return result
     }
 }
