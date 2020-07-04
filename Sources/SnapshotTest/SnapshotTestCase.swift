@@ -62,12 +62,12 @@ open class SnapshotTestCase : XCTestCase {
             }
             else {
                 try coordinator.compareSnapshot(of: snapshotable, options: options, functionName: functionName, line: line)
-                XCTAssertTrue(true, file: file, line: line)
+                XCTAssertTrue(true, file: (file), line: line)
             }
         } catch SnapshotError.imageMismatch(let filename) {
-            XCTFail("\(filename) is different from the reference image.", file: file, line: line)
+            XCTFail("\(filename) is different from the reference image.", file: (file), line: line)
         } catch {
-            XCTFail("\(functionName) - \(error)", file: file, line: line)
+            XCTFail("\(functionName) - \(error)", file: (file), line: line)
         }
 
     }
@@ -86,7 +86,7 @@ open class SnapshotTestCase : XCTestCase {
         do {
             try recordSnapshot(of: snapshotable, options: options, functionName: functionName, file: file, line: line)
         } catch {
-            XCTFail("\(functionName) - \(error)", file: file, line: line)
+            XCTFail("\(functionName) - \(error)", file: (file), line: line)
         }
         
     }
