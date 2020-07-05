@@ -49,14 +49,14 @@ public struct Options {
     }
 }
 
-extension Options : Sequence {
+extension Options: Sequence {
 
     public func contains(_ member: Option) -> Bool {
         return set.contains(member)
     }
 }
 
-extension Options : ExpressibleByArrayLiteral {
+extension Options: ExpressibleByArrayLiteral {
 
     public init(arrayLiteral elements: Option...) {
         self.init(elements)

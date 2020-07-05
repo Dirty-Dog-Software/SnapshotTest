@@ -48,7 +48,7 @@ class FilenameFormatter {
     }
 }
 
-extension FilenameFormatter : FilenameFormatting {
+extension FilenameFormatter: FilenameFormatting {
 
     func format(functionName: String, options: Options) -> String {
         var components: [String] = [functionName.trimParentheses()]

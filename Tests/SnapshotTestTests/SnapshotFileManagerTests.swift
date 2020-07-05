@@ -29,9 +29,9 @@
 import XCTest
 
 class SnapshotFileManagerTests: XCTestCase {
-    
+
     var sut: SnapshotFileManager!
-    
+
     var fileManagerMock: FileManagerMock!
     var dataHandlerMock: DataHandlerMock!
     var processInfo: ProcessEnvironmentMock!
@@ -41,7 +41,9 @@ class SnapshotFileManagerTests: XCTestCase {
 
     class func createTestImageInCode() -> UIImage {
         // $ openssl base64 -in redSquare.png
+        // swiftlint:disable line_length
         let str =  "iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAyAAAAKAAAADIAAAAyAAAA9cAyiXQAAADBSURBVHgB7NWhEQAxEMPA67/p/HwDxgILgsyike7e3fM6f3BgdGD8LACJFQIQQFqJqCWbIQxhyLKSIQxhCENiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AAJEzyYpZAAggsrQsWJujHrMHEEDkTLJiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AYkA+AAAA///FySv9AAAAvklEQVTt1aERADEQw8Drv+n8fAPGAguCzKKR7t7d8zp/cGB0YPwsAIkVAhBAWomoJZshDGHIspIhDGEIQ2IWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkAAkTPJilkACCCytCxYm6MeswcQQORMsmIWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkBiQD5Kb9Zk9Tk5jQAAAABJRU5ErkJggg=="
+        // swiftlint:enable line_length
         let data = NSData(base64Encoded: str)
         return UIImage(data: data! as Data)!
     }
@@ -54,7 +56,7 @@ class SnapshotFileManagerTests: XCTestCase {
         processInfo = ProcessEnvironmentMock()
         sut = SnapshotFileManager(fileManager: fileManagerMock, dataHandler: dataHandlerMock, processInfo: processInfo)
     }
-    
+
     override func tearDown() {
         sut = nil
         fileManagerMock = nil
@@ -62,33 +64,33 @@ class SnapshotFileManagerTests: XCTestCase {
         processInfo = nil
         super.tearDown()
     }
-    
+
     func testSnapshotFileManager_byDefault_shouldHaveFileManagerBeDefaultFileManager() {
         // Given
         sut = SnapshotFileManager()
-        
+
         // Then
         XCTAssertEqual(sut.fileManager, FileManager.default)
     }
-    
+
     func testSnapshotFileManager_byDefault_shouldHaveDataWriterBeInstanceOfDataWriter() {
         // Given
         sut = SnapshotFileManager()
-        
+
         // Then
         XCTAssertTrue(sut.dataHandler is DataHandler)
     }
-    
+
     func testSnapshotFileManager_byDefault_shouldHaveProcessToBeProcessInfoFromProcessInfo() {
         // Given
         sut = SnapshotFileManager()
-        
+
         // Then
         XCTAssert(sut.processInfo === ProcessInfo.processInfo as ProcessEnvironment)
     }
 
     // MARK: Save
-    
+
     func testSave_withReferenceImageDirectoryAsEnvironmentalVariable_shouldCheckIfDirectoryExists() throws {
         // Given
         let referenceImageDirectory = "/Environmental/Variable/ReferenceImages"
@@ -96,7 +98,7 @@ class SnapshotFileManagerTests: XCTestCase {
 
         // When
         try sut.save(referenceImage: testImage, filename: "filename-doesnt-matter-in-this-test", className: "CustomViewTests")
-        
+
         // Then
         XCTAssertEqual(fileManagerMock.fileExistsInvokeCount, 1)
         XCTAssertEqual(fileManagerMock.fileExistsPathArgument, "file:///Environmental/Variable/ReferenceImages/CustomViewTests")
@@ -107,55 +109,55 @@ class SnapshotFileManagerTests: XCTestCase {
         let referenceImageDirectory = "/NonExistingDirectory"
         processInfo.environment["REFERENCE_IMAGE_DIR"] = referenceImageDirectory
         fileManagerMock.fileExistsReturnValue = false
-        
+
         // When
         try sut.save(referenceImage: testImage, filename: "filename-doesnt-matter-in-this-test", className: "CustomViewTests")
-        
+
         // Then
         XCTAssertEqual(fileManagerMock.createDirectoryInvokeCount, 1)
         XCTAssertEqual(fileManagerMock.createDirectoryUrlArgument, URL(fileURLWithPath: "/NonExistingDirectory/CustomViewTests"))
     }
-    
+
     func testSave_withReferenceImageDirectoryDoesExist_shouldNotCreateDirectory() throws {
         // Given
         let referenceImageDirectory = "/ExistingDirectory"
         processInfo.environment["REFERENCE_IMAGE_DIR"] = referenceImageDirectory
         fileManagerMock.fileExistsReturnValue = true
-        
+
         // When
         try sut.save(referenceImage: testImage, filename: "filename-doesnt-matter-in-this-test", className: "CustomViewTests")
-        
+
         // Then
         XCTAssertEqual(fileManagerMock.createDirectoryInvokeCount, 0)
     }
-    
+
     func testSave_withReferenceImageDirectoryDoesExist_shouldWriteDataToCorrectPath() throws {
         // Given
         processInfo.environment["REFERENCE_IMAGE_DIR"] = "/ReferenceImageDirectory"
         fileManagerMock.fileExistsReturnValue = true
-        
+
         // When
         try sut.save(referenceImage: testImage, filename: "testFunctionName", className: "CustomViewTests")
-        
+
         // Then
         XCTAssertEqual(dataHandlerMock.writeInvokeCount, 1)
         XCTAssertEqual(dataHandlerMock.writePathArgument, URL(fileURLWithPath: "/ReferenceImageDirectory/CustomViewTests/testFunctionName.png"))
     }
-    
+
     func testSave_withReferenceImageDirectoryDoesExist_shouldReturnPathToSavedFile() throws {
         // Given
         processInfo.environment["REFERENCE_IMAGE_DIR"] = "/ReferenceImageDirectory"
         fileManagerMock.fileExistsReturnValue = true
-        
+
         // When
         let path = try sut.save(referenceImage: testImage, filename: "testFunctionName", className: "CustomViewTests")
-        
+
         // Then
         XCTAssertEqual(path, URL(fileURLWithPath: "/ReferenceImageDirectory/CustomViewTests/testFunctionName.png"))
     }
 
     // MARK: Reference Image
-    
+
     func testReferenceImage_forFunctionName_shouldWriteDataToCorrectPath() throws {
         // Given
         processInfo.environment["REFERENCE_IMAGE_DIR"] = "/ReferenceImageDirectory"
@@ -163,16 +165,18 @@ class SnapshotFileManagerTests: XCTestCase {
 
         // let testImage = UIImage(testFilename: "redSquare", ofType: "png")!
         // $ openssl base64 -in redSquare.png
+        // swiftlint:disable line_length
         let str =  "iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAyAAAAKAAAADIAAAAyAAAA9cAyiXQAAADBSURBVHgB7NWhEQAxEMPA67/p/HwDxgILgsyike7e3fM6f3BgdGD8LACJFQIQQFqJqCWbIQxhyLKSIQxhCENiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AAJEzyYpZAAggsrQsWJujHrMHEEDkTLJiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AYkA+AAAA///FySv9AAAAvklEQVTt1aERADEQw8Drv+n8fAPGAguCzKKR7t7d8zp/cGB0YPwsAIkVAhBAWomoJZshDGHIspIhDGEIQ2IWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkAAkTPJilkACCCytCxYm6MeswcQQORMsmIWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkBiQD5Kb9Zk9Tk5jQAAAABJRU5ErkJggg=="
+        // swiftlint:enable line_length
         let data = NSData(base64Encoded: str)
         let testImage = UIImage(data: data! as Data)!
 
         // When
         try sut.save(referenceImage: testImage, filename: "testFunctionName", className: "CustomViewTests")
-        
+
         // Then
         XCTAssertEqual(dataHandlerMock.writeInvokeCount, 1)
         XCTAssertEqual(dataHandlerMock.writePathArgument, URL(fileURLWithPath: "/ReferenceImageDirectory/CustomViewTests/testFunctionName.png"))
     }
-    
+
 }

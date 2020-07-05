@@ -29,27 +29,27 @@
 import XCTest
 
 class SnapshotCoordinatorTests: XCTestCase {
-    
+
     var sut: SnapshotCoordinator!
     var fileManagerMock: SnapshotFileManagerMock!
     var filenameFormatter: FilenameFormattingMock!
-    
+
     override func setUp() {
         super.setUp()
         fileManagerMock = SnapshotFileManagerMock()
         filenameFormatter = FilenameFormattingMock()
         sut = SnapshotCoordinator(className: "CustomButtonTests", fileManager: fileManagerMock, filenameFormatter: filenameFormatter)
     }
-    
+
     override func tearDown() {
         filenameFormatter = nil
         fileManagerMock = nil
         sut = nil
         super.tearDown()
     }
-    
+
     // MARK: Compare Snapshot
-    
+
     func testCompareSnapshot_withViewEqualToReferenceImage_shouldNotThrowError() {
 
         // Given
@@ -57,14 +57,16 @@ class SnapshotCoordinatorTests: XCTestCase {
 
         // fileManagerMock.referenceImageReturnValue = UIImage(testFilename: "redSquare", ofType: "png")
         // $ openssl base64 -in redSquare.png
+        // swiftlint:disable line_length
         let str =  "iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAyAAAAKAAAADIAAAAyAAAA9cAyiXQAAADBSURBVHgB7NWhEQAxEMPA67/p/HwDxgILgsyike7e3fM6f3BgdGD8LACJFQIQQFqJqCWbIQxhyLKSIQxhCENiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AAJEzyYpZAAggsrQsWJujHrMHEEDkTLJiFgACiCwtC9bmqMfsAQQQOZOsmAWAACJLy4K1OeoxewABRM4kK2YBIIDI0rJgbY56zB5AYkA+AAAA///FySv9AAAAvklEQVTt1aERADEQw8Drv+n8fAPGAguCzKKR7t7d8zp/cGB0YPwsAIkVAhBAWomoJZshDGHIspIhDGEIQ2IWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkAAkTPJilkACCCytCxYm6MeswcQQORMsmIWAAKILC0L1uaox+wBBBA5k6yYBYAAIkvLgrU56jF7AAFEziQrZgEggMjSsmBtjnrMHkBiQD5Kb9Zk9Tk5jQAAAABJRU5ErkJggg=="
+        // swiftlint:enable line_length
         let data = NSData(base64Encoded: str)
         fileManagerMock.referenceImageReturnValue = UIImage(data: data! as Data)!
 
         // When
         XCTAssertNoThrow(try sut.compareSnapshot(of: view, options: [], functionName: "redSquare", line: 0))
     }
-    
+
     func testCompareSnapshot_withViewNotEqualToReferenceImage_shouldThrowError() {
 
         // Given
@@ -119,14 +121,14 @@ class SnapshotCoordinatorTests: XCTestCase {
             XCTAssertEqual(error as? SnapshotFileManagerError, SnapshotFileManagerError.unableToSerializeReferenceImage)
         }
     }
-    
+
     func testRecordSnapshot_withFileManagerReturnsPath_shouldReturnPath() throws {
         // Given
         fileManagerMock.saveReturnValue = URL(fileURLWithPath: "/path/to/referenceImage.png")
-        
+
         // When
         let path = try sut.recordSnapshot(of: redSquareView(), functionName: "", line: 0)
-        
+
         // Then
         XCTAssertEqual(path, URL(fileURLWithPath: "/path/to/referenceImage.png"))
     }
@@ -135,7 +137,7 @@ class SnapshotCoordinatorTests: XCTestCase {
 // MARK: - Helpers
 
 extension SnapshotCoordinatorTests {
-    
+
     private func redSquareView() -> UIView {
         let size = 100 / UIScreen.main.scale
         let view = UIView(frame: CGRect(x: 0, y: 0, width: size, height: size))
@@ -144,7 +146,7 @@ extension SnapshotCoordinatorTests {
     }
 }
 
-class FilenameFormattingMock : FilenameFormatting {
+class FilenameFormattingMock: FilenameFormatting {
 
     func format(functionName: String, options: Options) -> String {
         return functionName

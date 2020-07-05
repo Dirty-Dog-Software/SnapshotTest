@@ -24,18 +24,19 @@
 //  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
 //  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
+// swiftlint:disable identifier_name
 
 import UIKit
 import XCTest
 
-open class SnapshotTestCase : XCTestCase {
+open class SnapshotTestCase: XCTestCase {
 
     /**
      Flag for activating record mode in the current test case.
      - Note: Tests will always fail in record mode.
      */
     open var recordMode: Bool = false
-    
+
     /**
      Flag for activating record mode for all test cases.
      - Note: Tests will always fail in record mode.
@@ -59,8 +60,7 @@ open class SnapshotTestCase : XCTestCase {
         do {
             if SnapshotTestCase.recordMode || recordMode {
                 try recordSnapshot(of: snapshotable, options: options, functionName: functionName, file: file, line: line)
-            }
-            else {
+            } else {
                 try coordinator.compareSnapshot(of: snapshotable, options: options, functionName: functionName, line: line)
                 XCTAssertTrue(true, file: (file), line: line)
             }
@@ -71,7 +71,7 @@ open class SnapshotTestCase : XCTestCase {
         }
 
     }
-    
+
     /**
     Records a snapshot of a snapshotable and saves a reference image to disk.
     - Parameter snapshotable: View construct conforming to the `Snapshotable` protocol.
@@ -88,9 +88,9 @@ open class SnapshotTestCase : XCTestCase {
         } catch {
             XCTFail("\(functionName) - \(error)", file: (file), line: line)
         }
-        
+
     }
-    
+
     private func recordSnapshot(of snapshotable: Snapshotable, options: Options, functionName: String, file: StaticString, line: UInt) throws {
         let referenceImageLocation = try coordinator.recordSnapshot(of: snapshotable, options: options, functionName: functionName, line: line)
         XCTFail("🔴 RECORD MODE: Reference image saved to \(referenceImageLocation.path)", file: file, line: line)

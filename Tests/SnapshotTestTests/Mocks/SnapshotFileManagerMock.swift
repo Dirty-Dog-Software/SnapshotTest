@@ -28,7 +28,7 @@
 @testable import SnapshotTest
 import UIKit
 
-class SnapshotFileManagerMock : SnapshotFileManaging {
+class SnapshotFileManagerMock: SnapshotFileManaging {
 
     var saveInvokeCount: Int = 0
     var saveReferenceImageArgument: UIImage?
@@ -36,13 +36,13 @@ class SnapshotFileManagerMock : SnapshotFileManaging {
     var saveClassNameArgument: String?
     var saveErrorToThrow: Error?
     var saveReturnValue: URL?
-    
+
     var referenceImageInvokeCount: Int = 0
     var referenceImageFilenameArgument: String?
     var referenceImageClassNameArgument: String?
     var referenceImageErrorToThrow: Error?
     var referenceImageReturnValue: UIImage?
-    
+
     func save(referenceImage: UIImage, filename: String, className: String) throws -> URL {
         saveInvokeCount += 1
         saveReferenceImageArgument = referenceImage
@@ -51,7 +51,7 @@ class SnapshotFileManagerMock : SnapshotFileManaging {
         if let error = saveErrorToThrow { throw error }
         return saveReturnValue ?? URL(fileURLWithPath: "/")
     }
-    
+
     func referenceImage(filename: String, className: String) throws -> UIImage {
         referenceImageInvokeCount += 1
         referenceImageFilenameArgument = filename

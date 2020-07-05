@@ -45,7 +45,7 @@ struct SnapshotCoordinator {
     }
 }
 
-extension SnapshotCoordinator : SnapshotCoordinating {
+extension SnapshotCoordinator: SnapshotCoordinating {
 
     func compareSnapshot(of snapshotable: Snapshotable, options: Options = [], functionName: String, line: UInt) throws {
         guard let snapshot = snapshotable.snapshot() else { throw SnapshotError.unableToTakeSnapshot }
@@ -57,7 +57,7 @@ extension SnapshotCoordinator : SnapshotCoordinating {
             throw SnapshotError.imageMismatch(filename: filename)
         }
     }
-    
+
     @discardableResult
     func recordSnapshot(of snapshotable: Snapshotable, options: Options = [], functionName: String, line: UInt) throws -> URL {
         guard let referenceImage = snapshotable.snapshot() else { throw SnapshotError.unableToTakeSnapshot }

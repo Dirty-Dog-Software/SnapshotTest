@@ -29,17 +29,17 @@
 import SnapshotTest
 
 class CocoaPodsTests: SnapshotTestCase {
-    
+
     override func setUp() {
         super.setUp()
 //        self.recordMode = true
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testViewSnapshot() {
 
         let label = UILabel()
@@ -86,14 +86,15 @@ class CocoaPodsTests: SnapshotTestCase {
 
         AssertSnapshot(navigationController)
     }
-    
+
     func testViewWithStretchedImageViewSnapshot() {
         // Given
         let stretchedImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 400, height: 100))
+        // swiftlint:disable discouraged_object_literal
         stretchedImageView.image = #imageLiteral(resourceName: "goose")
-        
+
         // Then
         AssertSnapshot(stretchedImageView)
     }
-    
+
 }

@@ -31,7 +31,7 @@ public protocol Snapshotable {
     func snapshot() -> UIImage?
 }
 
-extension CALayer : Snapshotable {
+extension CALayer: Snapshotable {
 
     public func snapshot() -> UIImage? {
 
@@ -50,7 +50,7 @@ extension CALayer : Snapshotable {
     }
 }
 
-extension UIView : Snapshotable {
+extension UIView: Snapshotable {
 
     public func snapshot() -> UIImage? {
         layoutIfNeeded()
@@ -58,7 +58,7 @@ extension UIView : Snapshotable {
     }
 }
 
-extension UIViewController : Snapshotable {
+extension UIViewController: Snapshotable {
 
     public func snapshot() -> UIImage? {
         beginAppearanceTransition(true, animated: false)

@@ -28,18 +28,18 @@
 @testable import SnapshotTest
 import UIKit
 
-class DataHandlerMock : DataHandling {
-    
+class DataHandlerMock: DataHandling {
+
     var writeInvokeCount: Int = 0
-    var writeDataArgument: Data? = nil
-    var writePathArgument: URL? = nil
-    var writeOptionsArgument: Data.WritingOptions? = nil
-    var writeErrorToThrow: Error? = nil
-    
+    var writeDataArgument: Data?
+    var writePathArgument: URL?
+    var writeOptionsArgument: Data.WritingOptions?
+    var writeErrorToThrow: Error?
+
     var imageInvokeCount: Int = 0
-    var imagePathArgument: URL? = nil
-    var imageReturnValue: UIImage? = nil
-    
+    var imagePathArgument: URL?
+    var imageReturnValue: UIImage?
+
     func write(_ data: Data, to path: URL, options: Data.WritingOptions) throws {
         writeInvokeCount += 1
         writeDataArgument = data
@@ -47,11 +47,11 @@ class DataHandlerMock : DataHandling {
         writeOptionsArgument = options
         if let error = writeErrorToThrow { throw error }
     }
-    
+
     func image(from path: URL) -> UIImage? {
         imageInvokeCount += 1
         imagePathArgument = path
         return imageReturnValue
     }
-    
+
 }

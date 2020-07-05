@@ -27,8 +27,7 @@
 
 import UIKit
 
-public enum Option : Hashable, Equatable {
+public enum Option: Hashable, Equatable {
     case device
     case osVersion
 }
-

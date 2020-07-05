@@ -28,7 +28,7 @@
 @testable import SnapshotTest
 import Foundation
 
-class ProcessEnvironmentMock : ProcessEnvironment {
+class ProcessEnvironmentMock: ProcessEnvironment {
 
-    var environment: [String : String] = [:]
+    var environment: [String: String] = [:]
 }

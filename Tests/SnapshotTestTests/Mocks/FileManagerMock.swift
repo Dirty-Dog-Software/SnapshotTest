@@ -28,28 +28,28 @@
 @testable import SnapshotTest
 import Foundation
 
-class FileManagerMock : FileManager {
-    
+class FileManagerMock: FileManager {
+
     var fileExistsInvokeCount: Int = 0
-    var fileExistsPathArgument: String? = nil
+    var fileExistsPathArgument: String?
     var fileExistsReturnValue: Bool = false
-    
+
     var createDirectoryInvokeCount: Int = 0
-    var createDirectoryUrlArgument:  URL? = nil
-    var createDirectoryCreateIntermediariesArgument: Bool? = nil
-    var createDirectoryErrorToThrow: Error? = nil
-    
+    var createDirectoryUrlArgument:  URL?
+    var createDirectoryCreateIntermediariesArgument: Bool?
+    var createDirectoryErrorToThrow: Error?
+
     override func fileExists(atPath path: String) -> Bool {
         fileExistsInvokeCount += 1
         fileExistsPathArgument = path
         return fileExistsReturnValue
     }
-    
-    override func createDirectory(at url: URL, withIntermediateDirectories createIntermediates: Bool, attributes: [FileAttributeKey : Any]? = nil) throws {
+
+    override func createDirectory(at url: URL, withIntermediateDirectories createIntermediates: Bool, attributes: [FileAttributeKey: Any]? = nil) throws {
         createDirectoryInvokeCount += 1
         createDirectoryUrlArgument = url
         createDirectoryCreateIntermediariesArgument = createIntermediates
         if let error = createDirectoryErrorToThrow { throw error }
     }
-    
+
 }

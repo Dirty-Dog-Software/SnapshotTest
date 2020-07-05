@@ -27,22 +27,22 @@
 
 import UIKit
 
-protocol ProcessEnvironment : AnyObject {
-    var environment: [String : String] { get }
+protocol ProcessEnvironment: AnyObject {
+    var environment: [String: String] { get }
 }
 
-extension ProcessInfo : ProcessEnvironment {}
+extension ProcessInfo: ProcessEnvironment {}
 
 protocol DataHandling {
     func write(_ data: Data, to path: URL, options: Data.WritingOptions) throws
     func image(from path: URL) -> UIImage?
 }
 
-class DataHandler : DataHandling {
+class DataHandler: DataHandling {
     func write(_ data: Data, to path: URL, options: Data.WritingOptions) throws {
         try data.write(to: path, options: options)
     }
-    
+
     func image(from path: URL) -> UIImage? {
         guard let data = try? Data.init(contentsOf: path) else { return nil }
         return UIImage(data: data, scale: UIScreen.main.scale)
@@ -54,14 +54,14 @@ protocol SnapshotFileManaging {
     func referenceImage(filename: String, className: String) throws -> UIImage
 }
 
-enum SnapshotFileManagerError : Error {
+enum SnapshotFileManagerError: Error {
     case unableToDetermineReferenceImageDirectory
     case unableToSerializeReferenceImage
     case unableToDeserializeReferenceImage
 }
 
-extension SnapshotFileManagerError : Equatable {
-    static func ==(lhs: SnapshotFileManagerError, rhs: SnapshotFileManagerError) -> Bool {
+extension SnapshotFileManagerError: Equatable {
+    static func == (lhs: SnapshotFileManagerError, rhs: SnapshotFileManagerError) -> Bool {
         switch (lhs, rhs) {
         case (.unableToDetermineReferenceImageDirectory, .unableToDetermineReferenceImageDirectory):
             return true
@@ -76,7 +76,7 @@ extension SnapshotFileManagerError : Equatable {
 }
 
 class SnapshotFileManager {
-    
+
     let fileManager: FileManager
     let dataHandler: DataHandling
     let processInfo: ProcessEnvironment
@@ -90,12 +90,12 @@ class SnapshotFileManager {
         self.dataHandler = dataHandler
         self.processInfo = processInfo
     }
-    
+
     lazy var referenceImageDirectory: URL? = {
         guard let environmentReferenceImageDirectory = processInfo.environment["REFERENCE_IMAGE_DIR"] else { return nil }
         return URL(fileURLWithPath: environmentReferenceImageDirectory)
     }()
-    
+
     private func buildAbsolutePath(for filename: String, className: String) throws -> URL {
         guard let referenceImageDirectory = referenceImageDirectory else { throw SnapshotFileManagerError.unableToDetermineReferenceImageDirectory }
 
@@ -106,7 +106,7 @@ class SnapshotFileManager {
     }
 }
 
-extension SnapshotFileManager : SnapshotFileManaging {
+extension SnapshotFileManager: SnapshotFileManaging {
 
     @discardableResult
     func save(referenceImage: UIImage, filename: String, className: String) throws -> URL {

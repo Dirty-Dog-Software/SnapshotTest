@@ -27,6 +27,8 @@
 //
 // Based on https://github.com/uber/ios-snapshot-test-case/blob/master/FBSnapshotTestCase/Categories/UIImage%2BCompare.m
 //
+// swiftlint:disable syntactic_sugar
+// swiftlint:disable line_length
 
 import UIKit
 import CoreGraphics
@@ -83,7 +85,7 @@ private extension CGImage {
 
         // Old code
         // let result = memcmp(UnsafePointer(imageBuf), UnsafePointer(referenceBuf), imageSizeBytes) == 0
-        
+
         return result
     }
 }

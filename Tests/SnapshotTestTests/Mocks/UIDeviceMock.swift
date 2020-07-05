@@ -27,7 +27,7 @@
 
 import UIKit
 
-class UIDeviceMock : UIDevice {
+class UIDeviceMock: UIDevice {
 
     var _model: String
     var _systemVersion: String

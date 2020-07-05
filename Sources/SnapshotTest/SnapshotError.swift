@@ -27,22 +27,22 @@
 
 import Foundation
 
-public enum SnapshotError : Error {
+public enum SnapshotError: Error {
     case imageMismatch(filename: String)
     case unableToTakeSnapshot
 }
 
-extension SnapshotError : Equatable {
+extension SnapshotError: Equatable {
 
-    public static func ==(lhs: SnapshotError, rhs: SnapshotError) -> Bool {
+    public static func == (lhs: SnapshotError, rhs: SnapshotError) -> Bool {
         switch (lhs, rhs) {
-            case (.imageMismatch(let lhsFilename), .imageMismatch(let rhsFilename)):
-                return lhsFilename == rhsFilename
-            case (.unableToTakeSnapshot, unableToTakeSnapshot):
-                return true
-            default:
-                return false
+        case (.imageMismatch(let lhsFilename), .imageMismatch(let rhsFilename)):
+            return lhsFilename == rhsFilename
+        case (.unableToTakeSnapshot, unableToTakeSnapshot):
+            return true
+        default:
+            return false
         }
     }
-    
+
 }
