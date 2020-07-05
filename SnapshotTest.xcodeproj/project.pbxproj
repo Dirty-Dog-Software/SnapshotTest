@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"SnapshotTest::SnapshotTestPackageTests::ProductTarget" /* SnapshotTestPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_71 /* Build configuration list for PBXAggregateTarget "SnapshotTestPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_74 /* PBXTargetDependency */,
+			);
+			name = SnapshotTestPackageTests;
+			productName = SnapshotTestPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		OBJ_54 /* FilenameFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* FilenameFormatter.swift */; };
+		OBJ_55 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Option.swift */; };
+		OBJ_56 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Options.swift */; };
+		OBJ_57 /* SnapshotCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* SnapshotCoordinator.swift */; };
+		OBJ_58 /* SnapshotError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* SnapshotError.swift */; };
+		OBJ_59 /* SnapshotFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SnapshotFileManager.swift */; };
+		OBJ_60 /* SnapshotTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* SnapshotTestCase.swift */; };
+		OBJ_61 /* Snapshotable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Snapshotable.swift */; };
+		OBJ_62 /* UIImage+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* UIImage+Compare.swift */; };
+		OBJ_69 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_80 /* FilenameFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* FilenameFormatterTests.swift */; };
+		OBJ_81 /* DataHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* DataHandlerMock.swift */; };
+		OBJ_82 /* FileManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* FileManagerMock.swift */; };
+		OBJ_83 /* ProcessEnvironmentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* ProcessEnvironmentMock.swift */; };
+		OBJ_84 /* SnapshotFileManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* SnapshotFileManagerMock.swift */; };
+		OBJ_85 /* UIDeviceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* UIDeviceMock.swift */; };
+		OBJ_86 /* SnapshotCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* SnapshotCoordinatorTests.swift */; };
+		OBJ_87 /* SnapshotFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* SnapshotFileManagerTests.swift */; };
+		OBJ_88 /* UIImage+TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* UIImage+TestHelper.swift */; };
+		OBJ_90 /* SnapshotTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SnapshotTest::SnapshotTest::Product" /* SnapshotTest.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C371C88E24B14BDC00E9E35D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SnapshotTest::SnapshotTest";
+			remoteInfo = SnapshotTest;
+		};
+		C371C88F24B14BDD00E9E35D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SnapshotTest::SnapshotTestTests";
+			remoteInfo = SnapshotTestTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		OBJ_10 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		OBJ_11 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		OBJ_12 /* SnapshotCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotCoordinator.swift; sourceTree = "<group>"; };
+		OBJ_13 /* SnapshotError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotError.swift; sourceTree = "<group>"; };
+		OBJ_14 /* SnapshotFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotFileManager.swift; sourceTree = "<group>"; };
+		OBJ_15 /* SnapshotTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTestCase.swift; sourceTree = "<group>"; };
+		OBJ_16 /* Snapshotable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshotable.swift; sourceTree = "<group>"; };
+		OBJ_17 /* UIImage+Compare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Compare.swift"; sourceTree = "<group>"; };
+		OBJ_20 /* redSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redSquare.png; sourceTree = "<group>"; };
+		OBJ_21 /* FilenameFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameFormatterTests.swift; sourceTree = "<group>"; };
+		OBJ_23 /* DataHandlerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlerMock.swift; sourceTree = "<group>"; };
+		OBJ_24 /* FileManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerMock.swift; sourceTree = "<group>"; };
+		OBJ_25 /* ProcessEnvironmentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessEnvironmentMock.swift; sourceTree = "<group>"; };
+		OBJ_26 /* SnapshotFileManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotFileManagerMock.swift; sourceTree = "<group>"; };
+		OBJ_27 /* UIDeviceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceMock.swift; sourceTree = "<group>"; };
+		OBJ_28 /* SnapshotCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotCoordinatorTests.swift; sourceTree = "<group>"; };
+		OBJ_29 /* SnapshotFileManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotFileManagerTests.swift; sourceTree = "<group>"; };
+		OBJ_31 /* UIImage+TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelper.swift"; sourceTree = "<group>"; };
+		OBJ_35 /* SnapshotTestPackageDescription */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SnapshotTestPackageDescription; sourceTree = SOURCE_ROOT; };
+		OBJ_36 /* Integration */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Integration; sourceTree = SOURCE_ROOT; };
+		OBJ_37 /* Configs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Configs; sourceTree = SOURCE_ROOT; };
+		OBJ_38 /* ExampleApp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExampleApp; sourceTree = SOURCE_ROOT; };
+		OBJ_39 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		OBJ_40 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		OBJ_41 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_42 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		OBJ_43 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		OBJ_44 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		OBJ_45 /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		OBJ_46 /* SnapshotTest.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SnapshotTest.podspec; sourceTree = "<group>"; };
+		OBJ_47 /* reference_image_directory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reference_image_directory.png; sourceTree = "<group>"; };
+		OBJ_48 /* Contributing Guidelines.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Contributing Guidelines.md"; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* FilenameFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameFormatter.swift; sourceTree = "<group>"; };
+		"SnapshotTest::SnapshotTest::Product" /* SnapshotTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapshotTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SnapshotTest::SnapshotTestTests::Product" /* SnapshotTestTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SnapshotTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_90 /* SnapshotTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		OBJ_18 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_19 /* SnapshotTestTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_19 /* SnapshotTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_20 /* redSquare.png */,
+				OBJ_21 /* FilenameFormatterTests.swift */,
+				OBJ_22 /* Mocks */,
+				OBJ_28 /* SnapshotCoordinatorTests.swift */,
+				OBJ_29 /* SnapshotFileManagerTests.swift */,
+				OBJ_30 /* Utilities */,
+			);
+			name = SnapshotTestTests;
+			path = Tests/SnapshotTestTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_22 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_23 /* DataHandlerMock.swift */,
+				OBJ_24 /* FileManagerMock.swift */,
+				OBJ_25 /* ProcessEnvironmentMock.swift */,
+				OBJ_26 /* SnapshotFileManagerMock.swift */,
+				OBJ_27 /* UIDeviceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		OBJ_30 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_31 /* UIImage+TestHelper.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		OBJ_32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"SnapshotTest::SnapshotTest::Product" /* SnapshotTest.framework */,
+				"SnapshotTest::SnapshotTestTests::Product" /* SnapshotTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_18 /* Tests */,
+				OBJ_32 /* Products */,
+				OBJ_35 /* SnapshotTestPackageDescription */,
+				OBJ_36 /* Integration */,
+				OBJ_37 /* Configs */,
+				OBJ_38 /* ExampleApp */,
+				OBJ_39 /* icon.png */,
+				OBJ_40 /* LICENSE */,
+				OBJ_41 /* README.md */,
+				OBJ_42 /* build.sh */,
+				OBJ_43 /* logo.png */,
+				OBJ_44 /* Gemfile */,
+				OBJ_45 /* Gemfile.lock */,
+				OBJ_46 /* SnapshotTest.podspec */,
+				OBJ_47 /* reference_image_directory.png */,
+				OBJ_48 /* Contributing Guidelines.md */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* SnapshotTest */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* SnapshotTest */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* FilenameFormatter.swift */,
+				OBJ_10 /* Option.swift */,
+				OBJ_11 /* Options.swift */,
+				OBJ_12 /* SnapshotCoordinator.swift */,
+				OBJ_13 /* SnapshotError.swift */,
+				OBJ_14 /* SnapshotFileManager.swift */,
+				OBJ_15 /* SnapshotTestCase.swift */,
+				OBJ_16 /* Snapshotable.swift */,
+				OBJ_17 /* UIImage+Compare.swift */,
+			);
+			name = SnapshotTest;
+			path = Sources/SnapshotTest;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"SnapshotTest::SnapshotTest" /* SnapshotTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_50 /* Build configuration list for PBXNativeTarget "SnapshotTest" */;
+			buildPhases = (
+				OBJ_53 /* Sources */,
+				C371C89024B14C0E00E9E35D /* ShellScript */,
+				OBJ_63 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnapshotTest;
+			productName = SnapshotTest;
+			productReference = "SnapshotTest::SnapshotTest::Product" /* SnapshotTest.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SnapshotTest::SnapshotTestTests" /* SnapshotTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_76 /* Build configuration list for PBXNativeTarget "SnapshotTestTests" */;
+			buildPhases = (
+				OBJ_79 /* Sources */,
+				OBJ_89 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_91 /* PBXTargetDependency */,
+			);
+			name = SnapshotTestTests;
+			productName = SnapshotTestTests;
+			productReference = "SnapshotTest::SnapshotTestTests::Product" /* SnapshotTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"SnapshotTest::SwiftPMPackageDescription" /* SnapshotTestPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_65 /* Build configuration list for PBXNativeTarget "SnapshotTestPackageDescription" */;
+			buildPhases = (
+				OBJ_68 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnapshotTestPackageDescription;
+			productName = SnapshotTestPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "SnapshotTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"SnapshotTest::SnapshotTest" /* SnapshotTest */,
+				"SnapshotTest::SwiftPMPackageDescription" /* SnapshotTestPackageDescription */,
+				"SnapshotTest::SnapshotTestPackageTests::ProductTarget" /* SnapshotTestPackageTests */,
+				"SnapshotTest::SnapshotTestTests" /* SnapshotTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C371C89024B14C0E00E9E35D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if ~/bin/swiftlint; then\n    ~/bin/swiftlint\nelse\n    echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint and install in ~/bin\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_54 /* FilenameFormatter.swift in Sources */,
+				OBJ_55 /* Option.swift in Sources */,
+				OBJ_56 /* Options.swift in Sources */,
+				OBJ_57 /* SnapshotCoordinator.swift in Sources */,
+				OBJ_58 /* SnapshotError.swift in Sources */,
+				OBJ_59 /* SnapshotFileManager.swift in Sources */,
+				OBJ_60 /* SnapshotTestCase.swift in Sources */,
+				OBJ_61 /* Snapshotable.swift in Sources */,
+				OBJ_62 /* UIImage+Compare.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_69 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_80 /* FilenameFormatterTests.swift in Sources */,
+				OBJ_81 /* DataHandlerMock.swift in Sources */,
+				OBJ_82 /* FileManagerMock.swift in Sources */,
+				OBJ_83 /* ProcessEnvironmentMock.swift in Sources */,
+				OBJ_84 /* SnapshotFileManagerMock.swift in Sources */,
+				OBJ_85 /* UIDeviceMock.swift in Sources */,
+				OBJ_86 /* SnapshotCoordinatorTests.swift in Sources */,
+				OBJ_87 /* SnapshotFileManagerTests.swift in Sources */,
+				OBJ_88 /* UIImage+TestHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SnapshotTest::SnapshotTestTests" /* SnapshotTestTests */;
+			targetProxy = C371C88F24B14BDD00E9E35D /* PBXContainerItemProxy */;
+		};
+		OBJ_91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SnapshotTest::SnapshotTest" /* SnapshotTest */;
+			targetProxy = C371C88E24B14BDC00E9E35D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SnapshotTest.xcodeproj/SnapshotTest_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SnapshotTest;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SnapshotTest;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SnapshotTest.xcodeproj/SnapshotTest_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SnapshotTest;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SnapshotTest;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode 11.5.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode 11.5.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SnapshotTest.xcodeproj/SnapshotTestTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SnapshotTestTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SnapshotTest.xcodeproj/SnapshotTestTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SnapshotTestTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_2 /* Build configuration list for PBXProject "SnapshotTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_50 /* Build configuration list for PBXNativeTarget "SnapshotTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_51 /* Debug */,
+				OBJ_52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_65 /* Build configuration list for PBXNativeTarget "SnapshotTestPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_66 /* Debug */,
+				OBJ_67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_71 /* Build configuration list for PBXAggregateTarget "SnapshotTestPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_72 /* Debug */,
+				OBJ_73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_76 /* Build configuration list for PBXNativeTarget "SnapshotTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_77 /* Debug */,
+				OBJ_78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}
